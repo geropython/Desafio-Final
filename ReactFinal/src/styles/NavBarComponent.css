@@ -3,3 +3,13 @@
         display: none;
     }
 }
+/* Estilos específicos para el NavBar */
+.navbar-nav .nav-item .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .navbar-nav .nav-item .nav-link:hover {
+    background-color: #d0f0fd; /* Celeste claro */
+    color: #007bff; /* Azul para el texto */
+    border-radius: 4px; /* Bordes redondeados opcionales */
+  }

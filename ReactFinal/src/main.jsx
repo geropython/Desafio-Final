@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import ReactDOM from "react-dom/client"
-import { FlightApp } from './FlightApp';
+import { ViajesApp } from './ViajesApp';
 import { BrowserRouter } from 'react-router-dom'
 
 import './index.css'
@@ -8,7 +8,7 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <StrictMode>
-      <FlightApp />
+      <ViajesApp />
     </StrictMode>,
   </BrowserRouter>
 )
