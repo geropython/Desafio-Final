@@ -1,0 +1,14 @@
+[
+    { "id": 1, "nombre": "Vuelo a París", "descripcion": "Directo desde Buenos Aires", "precio": 1200 },
+    { "id": 2, "nombre": "Paquete Cancún", "descripcion": "7 días, hotel y vuelo incluido", "precio": 1500 },
+    { "id": 3, "nombre": "Hotel en Madrid", "descripcion": "4 estrellas, desayuno incluido", "precio": 600 },
+    { "id": 4, "nombre": "Vuelo a Nueva York", "descripcion": "Con escala en Panamá", "precio": 980 },
+    { "id": 5, "nombre": "Paquete Río de Janeiro", "descripcion": "Carnaval 2025", "precio": 1300 },
+    { "id": 6, "nombre": "Hotel en Roma", "descripcion": "Cerca del Coliseo", "precio": 700 },
+    { "id": 7, "nombre": "Vuelo a Tokio", "descripcion": "Con escala en Los Ángeles", "precio": 1800 },
+    { "id": 8, "nombre": "Hotel en Berlín", "descripcion": "Incluye spa y desayuno", "precio": 650 },
+    { "id": 9, "nombre": "Paquete Caribe", "descripcion": "Todo incluido 5 estrellas", "precio": 2000 },
+    { "id": 10, "nombre": "Vuelo a Sidney", "descripcion": "Clase turista", "precio": 2200 },
+    { "id": 11, "nombre": "Hotel en Bangkok", "descripcion": "Vista al río", "precio": 550 }
+  ]
+  

@@ -1,15 +1,20 @@
-@media (max-width: 991px) {
-    .cart-icon {
-        display: none;
-    }
+/* 1. Asegurarte de apuntar al selector correcto y sobreescribir Bootstrap */
+.navbar-light .navbar-nav .nav-link {
+  display: inline-block;               /* que respete padding y border-radius */
+  padding: 0.6rem 1rem;                /* ajusta al gusto */
+  border-radius: 0.25rem;              /* esquinas suaves */
+  transition: background-color 0.2s, color 0.2s;
 }
-/* Estilos específicos para el NavBar */
-.navbar-nav .nav-item .nav-link {
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .navbar-nav .nav-item .nav-link:hover {
-    background-color: #d0f0fd; /* Celeste claro */
-    color: #007bff; /* Azul para el texto */
-    border-radius: 4px; /* Bordes redondeados opcionales */
-  }
+
+/* 2. Hover: recuadro celeste + texto azul */
+.navbar-light .navbar-nav .nav-link:hover {
+  background-color: #d0f0fd !important; /* celeste claro */
+  color:        #007bff  !important;    /* azul bootstrap */
+}
+
+/* 3. Activo (ruta actual) */
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link[aria-current="page"] {
+  background-color: #d0f0fd !important;
+  color:        #007bff  !important;
+}

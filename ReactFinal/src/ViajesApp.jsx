@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import VuelosPage from './pages/VuelosPage';
 import PaquetesPage from './pages/PaquetesPage';
 import AlojamientosPage from './pages/AlojamientosPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 
 export const ViajesApp = () => {
   return (

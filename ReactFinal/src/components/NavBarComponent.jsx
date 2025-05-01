@@ -58,7 +58,7 @@ export const NavBarComponent = () => {
             <button type="button" className="btn btn-dark me-2">
               Crear cuenta
             </button>
-            <button type="button" className="btn btn-outline-success">
+            <button type="button" className="btn btn-dark me-2">
               Iniciar sesión
             </button>
           </div>
