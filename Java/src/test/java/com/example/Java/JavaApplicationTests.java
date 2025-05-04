@@ -1,10 +1,10 @@
-package GonzaliaG.demo;
+package com.example.Java;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JavaFinalApplicationTests {
+class JavaApplicationTests {
 
 	@Test
 	void contextLoads() {
