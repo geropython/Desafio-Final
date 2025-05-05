@@ -7,6 +7,9 @@ import VuelosPage from './pages/VuelosPage';
 import PaquetesPage from './pages/PaquetesPage';
 import AlojamientosPage from './pages/AlojamientosPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import AdminPanel from './pages/AdminPanel';
+import ListaProductosPage from './pages/ListaProductosPage';
+
 
 export const ViajesApp = () => {
   return (
@@ -15,6 +18,9 @@ export const ViajesApp = () => {
       <div className="container mt-5 pt-4">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/administracion" element={<AdminPanel />} />
+          <Route path="/administracion/lista-productos" element={<ListaProductosPage />} />
+
           <Route path="/vuelos" element={<VuelosPage />} />
           <Route path="/paquetes" element={<PaquetesPage />} />
           <Route path="/alojamientos" element={<AlojamientosPage />} />

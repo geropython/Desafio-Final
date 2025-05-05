@@ -51,6 +51,11 @@ export const NavBarComponent = () => {
                 <FaBed className="me-2" /> Alojamientos
               </NavLink>
             </li>
+            {/* <li className="nav-item">
+              <NavLink className="nav-link text-warning" to="/administracion">
+                🛠 Administración
+              </NavLink>
+            </li> */}
             {/* agregá más secciones aquí */}
           </ul>
 

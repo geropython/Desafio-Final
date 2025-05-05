@@ -9,6 +9,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <StrictMode>
       <ViajesApp />
-    </StrictMode>,
+    </StrictMode>
   </BrowserRouter>
 )
