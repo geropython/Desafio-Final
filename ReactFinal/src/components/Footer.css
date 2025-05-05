@@ -1,0 +1,22 @@
+.footer {
+    width: 100%;
+    position: relative; /* Cambia a fixed si quieres que esté fijo abajo */
+    bottom: 0;
+    border-radius: 5px;
+  }
+  
+  .footer-logo {
+    height: 30px;
+    width: auto;
+  }
+  
+  @media (max-width: 576px) {
+    .footer small {
+      font-size: 12px;
+    }
+  
+    .footer-logo {
+      height: 24px;
+    }
+  }
+  
