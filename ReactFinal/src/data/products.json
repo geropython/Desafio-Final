@@ -1,13 +1,262 @@
 [
-  { "id": 1, "nombre": "Vuelo a París", "descripcion": "Directo desde Buenos Aires", "precio": 1200 },
-  { "id": 2, "nombre": "Paquete Cancún", "descripcion": "7 días, hotel y vuelo incluido", "precio": 1500 },
-  { "id": 3, "nombre": "Hotel en Madrid", "descripcion": "4 estrellas, desayuno incluido", "precio": 600 },
-  { "id": 4, "nombre": "Vuelo a Nueva York", "descripcion": "Con escala en Panamá", "precio": 980 },
-  { "id": 5, "nombre": "Paquete Río de Janeiro", "descripcion": "Carnaval 2025", "precio": 1300 },
-  { "id": 6, "nombre": "Hotel en Roma", "descripcion": "Cerca del Coliseo", "precio": 700 },
-  { "id": 7, "nombre": "Vuelo a Tokio", "descripcion": "Con escala en Los Ángeles", "precio": 1800 },
-  { "id": 8, "nombre": "Hotel en Berlín", "descripcion": "Incluye spa y desayuno", "precio": 650 },
-  { "id": 9, "nombre": "Paquete Caribe", "descripcion": "Todo incluido 5 estrellas", "precio": 2000 },
-  { "id": 10, "nombre": "Vuelo a Sidney", "descripcion": "Clase turista", "precio": 2200 },
-  { "id": 11, "nombre": "Hotel en Bangkok", "descripcion": "Vista al río", "precio": 550 }
+  {
+    "id": 1,
+    "nombre": "Vuelo a París",
+    "descripcion": "Directo desde Buenos Aires",
+    "precio": 1200,
+    "imagenes": [
+      "/images/paris1.jpg",
+      "/images/paris2.jpg",
+      "/images/paris3.jpg",
+      "/images/paris4.jpg",
+      "/images/paris5.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Paquete Cancún",
+    "descripcion": "7 días, hotel y vuelo incluido",
+    "precio": 1500,
+    "imagenes": [
+      "/images/cancun1.jpg",
+      "/images/cancun2.jpg",
+      "/images/cancun3.jpg",
+      "/images/cancun4.jpg",
+      "/images/cancun5.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Hotel en Madrid",
+    "descripcion": "4 estrellas, desayuno incluido",
+    "precio": 600,
+    "imagenes": [
+      "/images/madrid1.jpg",
+      "/images/madrid2.jpg",
+      "/images/madrid3.jpg",
+      "/images/madrid4.jpg",
+      "/images/madrid5.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "Vuelo a Nueva York",
+    "descripcion": "Con escala en Panamá",
+    "precio": 980,
+    "imagenes": [
+      "/images/ny1.jpg",
+      "/images/ny2.jpg",
+      "/images/ny3.jpg",
+      "/images/ny4.jpg",
+      "/images/ny5.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "nombre": "Paquete Río de Janeiro",
+    "descripcion": "Carnaval 2025",
+    "precio": 1300,
+    "imagenes": [
+      "/images/rio1.jpg",
+      "/images/rio2.jpg",
+      "/images/rio3.jpg",
+      "/images/rio4.jpg",
+      "/images/rio5.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "Hotel en Roma",
+    "descripcion": "Cerca del Coliseo",
+    "precio": 700,
+    "imagenes": [
+      "/images/roma1.jpg",
+      "/images/roma2.jpg",
+      "/images/roma3.jpg",
+      "/images/roma4.jpg",
+      "/images/roma5.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "nombre": "Vuelo a Tokio",
+    "descripcion": "Con escala en Los Ángeles",
+    "precio": 1800,
+    "imagenes": [
+      "/images/tokyo1.jpg",
+      "/images/tokyo2.jpg",
+      "/images/tokyo3.jpg",
+      "/images/tokyo4.jpg",
+      "/images/tokyo5.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "nombre": "Hotel en Berlín",
+    "descripcion": "Incluye spa y desayuno",
+    "precio": 650,
+    "imagenes": [
+      "/images/berlin1.jpg",
+      "/images/berlin2.jpg",
+      "/images/berlin3.jpg",
+      "/images/berlin4.jpg",
+      "/images/berlin5.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "nombre": "Paquete a Las Vegas",
+    "descripcion": "5 noches en el hotel Bellagio",
+    "precio": 2000,
+    "imagenes": [
+      "/images/vegas1.jpg",
+      "/images/vegas2.jpg",
+      "/images/vegas3.jpg",
+      "/images/vegas4.jpg",
+      "/images/vegas5.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "nombre": "Crucero por el Caribe",
+    "descripcion": "Todo incluido, 7 días",
+    "precio": 2500,
+    "imagenes": [
+      "/images/crucero1.jpg",
+      "/images/crucero2.jpg",
+      "/images/crucero3.jpg",
+      "/images/crucero4.jpg",
+      "/images/crucero5.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "nombre": "Safari en Kenia",
+    "descripcion": "Incluye vuelos y alojamiento",
+    "precio": 3000,
+    "imagenes": [
+      "/images/kenia1.jpg",
+      "/images/kenia2.jpg",
+      "/images/kenia3.jpg",
+      "/images/kenia4.jpg",
+      "/images/kenia5.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "nombre": "Tour por Egipto",
+    "descripcion": "Visita las pirámides y el Nilo",
+    "precio": 2200,
+    "imagenes": [
+      "/images/egipto1.jpg",
+      "/images/egipto2.jpg",
+      "/images/egipto3.jpg",
+      "/images/egipto4.jpg",
+      "/images/egipto5.jpg"
+    ]
+  },
+  {
+    "id": 13,
+    "nombre": "Escapada a Bariloche",
+    "descripcion": "Incluye hotel y excursiones",
+    "precio": 800,
+    "imagenes": [
+      "/images/bariloche1.jpg",
+      "/images/bariloche2.jpg",
+      "/images/bariloche3.jpg",
+      "/images/bariloche4.jpg",
+      "/images/bariloche5.jpg"
+    ]
+  },
+  {
+    "id": 14,
+    "nombre": "Aventura en Patagonia",
+    "descripcion": "Senderismo y naturaleza",
+    "precio": 1500,
+    "imagenes": [
+      "/images/patagonia1.jpg",
+      "/images/patagonia2.jpg",
+      "/images/patagonia3.jpg",
+      "/images/patagonia4.jpg",
+      "/images/patagonia5.jpg"
+    ]
+  },
+  {
+    "id": 15,
+    "nombre": "Escapada a Mendoza",
+    "descripcion": "Cata de vinos y gastronomía",
+    "precio": 600,
+    "imagenes": [
+      "/images/mendoza1.jpg",
+      "/images/mendoza2.jpg",
+      "/images/mendoza3.jpg",
+      "/images/mendoza4.jpg",
+      "/images/mendoza5.jpg"
+    ]
+  },
+  {
+    "id": 16,
+    "nombre": "Tour por el Sudeste Asiático",
+    "descripcion": "Visita Tailandia, Vietnam y Camboya",
+    "precio": 3500,
+    "imagenes": [
+      "/images/sudeste1.jpg",
+      "/images/sudeste2.jpg",
+      "/images/sudeste3.jpg",
+      "/images/sudeste4.jpg",
+      "/images/sudeste5.jpg"
+    ]
+  },
+  {
+    "id": 17,
+    "nombre": "Viaje a Australia",
+    "descripcion": "Explora Australia desde el sur al norte",
+    "precio": 2000,
+    "imagenes": [
+      "/images/australia1.jpg",
+      "/images/australia2.jpg",
+      "/images/australia3.jpg",
+      "/images/australia4.jpg",
+      "/images/australia5.jpg"
+    ]
+  },
+  {
+    "id": 18,
+    "nombre": "Escapada a Ushuaia",
+    "descripcion": "Fin del mundo, naturaleza y aventura",
+    "precio": 1200,
+    "imagenes": [
+      "/images/ushuaia1.jpg",
+      "/images/ushuaia2.jpg",
+      "/images/ushuaia3.jpg",
+      "/images/ushuaia4.jpg",
+      "/images/ushuaia5.jpg"
+    ]
+  },
+  {
+    "id": 19,
+    "nombre": "Viaje a Nueva Zelanda",
+    "descripcion": "Naturaleza y aventura en cada rincón",
+    "precio": 2500,
+    "imagenes": [
+      "/images/nueva_zelanda1.jpg",
+      "/images/nueva_zelanda2.jpg",
+      "/images/nueva_zelanda3.jpg",
+      "/images/nueva_zelanda4.jpg",
+      "/images/nueva_zelanda5.jpg"
+    ]
+  },
+  {
+    "id": 20,
+    "nombre": "Tour por Sudáfrica",
+    "descripcion": "Safari y cultura en un solo viaje",
+    "precio": 2800,
+    "imagenes": [
+      "/images/sudafrica1.jpg",
+      "/images/sudafrica2.jpg",
+      "/images/sudafrica3.jpg",
+      "/images/sudafrica4.jpg",
+      "/images/sudafrica5.jpg"
+    ]
+  }
 ]

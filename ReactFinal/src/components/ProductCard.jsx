@@ -1,6 +1,6 @@
-// src/components/ProductCard.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ImageGallery from './ImageGallery';
 
 const ProductCard = ({ product }) => {
   return (
@@ -9,6 +9,9 @@ const ProductCard = ({ product }) => {
       className="text-decoration-none text-body"
     >
       <div className="card h-100 shadow-sm">
+        {/* Galería de imágenes del producto */}
+        <ImageGallery images={product.imagenes} />
+
         <div className="card-body">
           <h5 className="card-title">{product.nombre}</h5>
           <p className="card-text">{product.descripcion}</p>
