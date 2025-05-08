@@ -1,7 +1,7 @@
 // src/components/NavBarComponent.jsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Logo from '../imgs/Logo.png';
+import Logo from '../images/Logo.png';
 import { FaPlane, FaSuitcase, FaBed } from 'react-icons/fa'; // Importa los iconos
 import '../styles/NavBarComponent.css';
 

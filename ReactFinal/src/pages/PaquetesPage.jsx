@@ -1,18 +1,19 @@
 import React from 'react';
 import { CardComponent } from '../components/CardComponent';
+import productos from '../data/products';
 
 const PaquetesPage = () => {
   // URLs dinámicas de Unsplash basadas en palabras clave
   const paquetes = [
     {
       title: 'Paquete a Cancún',
-      image: 'https://source.unsplash.com/286x180/?Cancun,travel',  
+      image: '/images/cancun1.jpg',
       description: 'Todo incluido, 7 días, desde $799 USD',
       link: '/detalle-paquete?destino=Cancun',
     },
     {
       title: 'Paquete a París',
-      image: 'https://source.unsplash.com/286x180/?Paris,travel',  
+      image: 'images/paris1.jpg',  
       description: 'Incluye vuelo, hotel y desayuno, desde $1,200 USD',
       link: '/detalle-paquete?destino=Paris',
     },

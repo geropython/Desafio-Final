@@ -7,13 +7,13 @@ const VuelosPage = () => {
   const ofertas = [
     {
       title: 'Buenos Aires – Madrid',
-      image: 'https://source.unsplash.com/286x180/?airplane,Madrid',  
+      image: 'images/madrid1.jpg',  
       description: 'Desde $1,200 USD, directo, ida y vuelta',
       link: '/detalle-vuelo?origen=BA&destino=MAD',
     },
     {
       title: 'Santiago – Nueva York',
-      image: 'https://source.unsplash.com/286x180/?airplane,New%20York',  
+      image: 'images/ny1.jpg',
       description: 'Desde $1,100 USD, escala en Miami',
       link: '/detalle-vuelo?origen=SCL&destino=NYC',
     },
