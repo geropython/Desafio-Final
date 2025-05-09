@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "http://localhost:3000") // Permite peticiones desde el frontend React
+@CrossOrigin(origins = "http://localhost:5173") // Permite peticiones desde el frontend React
 public class ProductController {
 
     private final ProductRepository repository;

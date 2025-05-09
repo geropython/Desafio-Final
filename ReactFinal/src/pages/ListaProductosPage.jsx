@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'; // Importamos axios para hacer solicitudes HTTP
+import { useNavigate } from 'react-router-dom'; // Importamos useNavigate
+import axios from 'axios';
 
 const ListaProductosPage = () => {
   const [productList, setProductList] = useState([]);
-  const [loading, setLoading] = useState(false); // Estado para manejar la carga
-  const [error, setError] = useState(null); // Estado para manejar errores
-  const [successMessage, setSuccessMessage] = useState(null); // Estado para mostrar éxito
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const navigate = useNavigate(); // Inicializamos navigate
 
-  // Cargar los productos al montar el componente
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:8080/api/products'); // Cambiar URL según tu backend
+        const response = await axios.get('http://localhost:8080/api/products');
         setProductList(response.data);
       } catch (err) {
         setError('Error al cargar los productos');
@@ -28,9 +29,7 @@ const ListaProductosPage = () => {
     if (window.confirm('¿Estás seguro de que deseas eliminar este producto?')) {
       try {
         setLoading(true);
-        const response = await axios.delete(`http://localhost:8080/api/products/${id}`); // Petición DELETE
-        
-        // Si la respuesta tiene el código de estado 204, eliminamos el producto de la lista local
+        const response = await axios.delete(`http://localhost:8080/api/products/${id}`);
         if (response.status === 204) {
           setProductList((prevList) => prevList.filter((product) => product.id !== id));
           setSuccessMessage('Producto eliminado con éxito');
@@ -38,7 +37,6 @@ const ListaProductosPage = () => {
           setError('Error al eliminar el producto');
         }
       } catch (err) {
-        // Mostrar un error si el producto no fue encontrado (404)
         if (err.response && err.response.status === 404) {
           setError('Producto no encontrado');
         } else {
@@ -57,8 +55,18 @@ const ListaProductosPage = () => {
   return (
     <div className="container mt-5">
       <h2>Lista de Productos</h2>
+
       {error && <div className="alert alert-danger">{error}</div>}
       {successMessage && <div className="alert alert-success">{successMessage}</div>}
+
+      {/* Botón para registrar un nuevo producto */}
+      <button
+        className="btn btn-success mb-3"
+        onClick={() => navigate('/administracion/registrar-producto')}
+      >
+        ➕ Registrar nuevo producto
+      </button>
+
       <table className="table table-bordered mt-4">
         <thead>
           <tr>
@@ -83,10 +91,16 @@ const ListaProductosPage = () => {
                 <td>${product.precio}</td>
                 <td>
                   <button
+                    className="btn btn-warning me-2"
+                    onClick={() => navigate(`/administracion/editar-producto/${product.id}`)}
+                  >
+                    Editar
+                  </button>
+                  <button
                     className="btn btn-danger"
                     onClick={() => handleDelete(product.id)}
                   >
-                    Eliminar producto
+                    Eliminar
                   </button>
                 </td>
               </tr>

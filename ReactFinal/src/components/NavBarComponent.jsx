@@ -1,11 +1,29 @@
-// src/components/NavBarComponent.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../images/Logo.png';
 import { FaPlane, FaSuitcase, FaBed } from 'react-icons/fa'; // Importa los iconos
 import '../styles/NavBarComponent.css';
 
 export const NavBarComponent = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = sessionStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser)); // Obtén el usuario del sessionStorage
+    }
+  }, []);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('user'); // Elimina la sesión
+    setUser(null); // Actualiza el estado
+  };
+
+  const getAvatar = (name) => {
+    const initials = name.split(' ').map(word => word[0].toUpperCase()).join('');
+    return initials; // Devolvemos las iniciales del nombre
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top w-100">
       <div className="container-fluid">
@@ -51,22 +69,29 @@ export const NavBarComponent = () => {
                 <FaBed className="me-2" /> Alojamientos
               </NavLink>
             </li>
-            {/* <li className="nav-item">
-              <NavLink className="nav-link text-warning" to="/administracion">
-                🛠 Administración
-              </NavLink>
-            </li> */}
-            {/* agregá más secciones aquí */}
           </ul>
 
-          <div className="d-flex">
-            <button type="button" className="btn btn-dark me-2">
-              Crear cuenta
-            </button>
-            <button type="button" className="btn btn-dark me-2">
-              Iniciar sesión
-            </button>
-          </div>
+          {/* Si el usuario está autenticado, mostrar nombre y avatar */}
+          {user ? (
+            <div className="d-flex align-items-center">
+              <div className="avatar me-3">
+                {getAvatar(user.name)} {/* Avatar con las iniciales del nombre */}
+              </div>
+              <span>{user.name}</span>
+              <button className="btn btn-dark ms-2" onClick={handleLogout}>
+                Cerrar sesión
+              </button>
+            </div>
+          ) : (
+            <div className="d-flex">
+              <NavLink to="/registrar" className="btn btn-dark me-2">
+                Crear cuenta
+              </NavLink>
+              <NavLink to="/iniciar-sesion" className="btn btn-dark me-2">
+                Iniciar sesión
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </nav>

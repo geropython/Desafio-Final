@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const AddProductPage = ({ existingProducts, onAdd }) => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    images: []
+    images: [],
+    categoryId: ''
   });
   const [error, setError] = useState('');
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/categories');
+        setCategories(response.data);
+      } catch (err) {
+        setError('Error al cargar categorías');
+      }
+    };
+    fetchCategories();
+  }, []);
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,18 +31,27 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
     setFormData({ ...formData, images: Array.from(e.target.files) });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
-    // Validación de nombre único
     if (existingProducts.some(p => p.name === formData.name)) {
       setError('El nombre ya está en uso.');
       return;
     }
 
-    // Guardar producto (simulado o con backend)
-    onAdd(formData);
-    setError('');
+    if (!formData.categoryId) {
+      setError('Por favor, seleccione una categoría.');
+      return;
+    }
+
+    try {
+      // Aquí puedes adaptar según si usas onAdd local o llamada real a tu API
+      await axios.post('http://localhost:8080/api/products', formData);
+      setError('');
+      onAdd && onAdd(formData); // Solo si se pasa onAdd
+    } catch (err) {
+      setError('Error al guardar el producto');
+    }
   };
 
   return (
@@ -61,6 +85,23 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
             multiple
             onChange={handleImagesChange}
           />
+        </div>
+        <div className="mb-3">
+          <label>Categoría</label>
+          <select
+            name="categoryId"
+            className="form-select"
+            value={formData.categoryId}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Seleccione una categoría</option>
+            {categories.map(cat => (
+              <option key={cat.id} value={cat.id}>
+                {cat.nombre}
+              </option>
+            ))}
+          </select>
         </div>
         {error && <div className="alert alert-danger">{error}</div>}
         <button type="submit" className="btn btn-success">
