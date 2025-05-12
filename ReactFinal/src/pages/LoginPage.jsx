@@ -9,8 +9,8 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const users = [
-    { email: 'gonzaliag@gmail.com', password: 'Gerocodbo2', name: 'Geronimo Gonzalia' },
-    { email: 'admin@gmail.com', password: 'admin123', name: 'Administrador' },
+    { email: 'gonzaliag@gmail.com', password: 'Gerocodbo2', name: 'Geronimo Gonzalia', isAdmin: false },
+    { email: 'admin@gmail.com', password: 'admin123', name: 'Administrador', isAdmin: true },
   ]; // Datos de ejemplo, reemplazar con datos reales o API
 
   const handleSubmit = (e) => {
@@ -44,7 +44,7 @@ const LoginPage = () => {
             required
           />
         </div>
-
+        
         <div className="mb-3">
           <label>Contraseña</label>
           <input

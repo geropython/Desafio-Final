@@ -1,33 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../images/Logo.png';
-import { FaPlane, FaSuitcase, FaBed } from 'react-icons/fa'; // Importa los iconos
+import { FaPlane, FaSuitcase, FaBed } from 'react-icons/fa';
 import '../styles/NavBarComponent.css';
 
 export const NavBarComponent = () => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUser = sessionStorage.getItem('user');
     if (storedUser) {
-      setUser(JSON.parse(storedUser)); // Obtén el usuario del sessionStorage
+      setUser(JSON.parse(storedUser));
     }
   }, []);
 
   const handleLogout = () => {
-    sessionStorage.removeItem('user'); // Elimina la sesión
-    setUser(null); // Actualiza el estado
+    sessionStorage.removeItem('user');
+    setUser(null);
+    navigate('/'); // Redirige al inicio como usuario anónimo
   };
 
   const getAvatar = (name) => {
     const initials = name.split(' ').map(word => word[0].toUpperCase()).join('');
-    return initials; // Devolvemos las iniciales del nombre
+    return initials;
   };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top w-100">
       <div className="container-fluid">
-        {/* Logo + lema */}
         <NavLink className="d-flex align-items-center text-decoration-none" to="/">
           <img
             src={Logo}
@@ -51,7 +52,6 @@ export const NavBarComponent = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Menú de secciones */}
         <div className="collapse navbar-collapse" id="navbarButtons">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
@@ -71,14 +71,12 @@ export const NavBarComponent = () => {
             </li>
           </ul>
 
-          {/* Si el usuario está autenticado, mostrar nombre y avatar */}
+          {/* Sección para usuario autenticado o anónimo */}
           {user ? (
-            <div className="d-flex align-items-center">
-              <div className="avatar me-3">
-                {getAvatar(user.name)} {/* Avatar con las iniciales del nombre */}
-              </div>
-              <span>{user.name}</span>
-              <button className="btn btn-dark ms-2" onClick={handleLogout}>
+            <div className="d-flex flex-column align-items-center ms-3">
+              <div className="avatar mb-1">{getAvatar(user.name)}</div>
+              <span className="mb-2">{user.name}</span>
+              <button className="btn btn-outline-dark btn-sm" onClick={handleLogout}>
                 Cerrar sesión
               </button>
             </div>

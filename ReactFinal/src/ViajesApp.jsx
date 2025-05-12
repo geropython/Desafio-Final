@@ -13,6 +13,8 @@ import ListaProductosPage from './pages/ListaProductosPage';
 
 import RegisterPage from './pages/RegisterPage';
 import Login from './pages/LoginPage';
+import AdminRoute from './components/AdminRoute';
+
 
 export const ViajesApp = () => {
   return (
@@ -21,8 +23,8 @@ export const ViajesApp = () => {
       <div className="container mt-5 pt-4">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/administracion" element={<AdminPanel />} />
-          <Route path="/administracion/lista-productos" element={<ListaProductosPage />} />
+          <Route path="/administracion" element={<AdminRoute><AdminPanel /></AdminRoute>} />
+          <Route path="/administracion/lista-productos" element={<AdminRoute><ListaProductosPage /></AdminRoute>}/>
 
           <Route path="/vuelos" element={<VuelosPage />} />
           <Route path="/paquetes" element={<PaquetesPage />} />
