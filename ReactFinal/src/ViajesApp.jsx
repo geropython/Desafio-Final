@@ -15,7 +15,6 @@ import RegisterPage from './pages/RegisterPage';
 import Login from './pages/LoginPage';
 import AdminRoute from './components/AdminRoute';
 
-
 export const ViajesApp = () => {
   return (
     <div>

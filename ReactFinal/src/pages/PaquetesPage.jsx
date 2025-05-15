@@ -13,7 +13,7 @@ const PaquetesPage = () => {
     },
     {
       title: 'Paquete a París',
-      image: 'images/paris1.jpg',  
+      image: '/images/paris1.jpg',  
       description: 'Incluye vuelo, hotel y desayuno, desde $1,200 USD',
       link: '/detalle-paquete?destino=Paris',
     },

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import products from '../data/products.json';
 import ProductCard from '../components/ProductCard';
 import Footer from '../components/Footer';
+import CaracteristicasBlock from '../components/CaracteristicasBlock';
+
 
 const PRODUCTS_PER_PAGE = 10;
 
@@ -66,6 +68,7 @@ const HomePage = () => {
           </button>
         </div>
       </div>
+      <CaracteristicasBlock />
 
       <Footer />
     </>

@@ -10,6 +10,8 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
   });
   const [error, setError] = useState('');
   const [categories, setCategories] = useState([]);
+  const [caracteristicas, setCaracteristicas] = useState([]);
+  const [selectedCaracteristicas, setSelectedCaracteristicas] = useState([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -20,7 +22,18 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
         setError('Error al cargar categorías');
       }
     };
+
+    const fetchCaracteristicas = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/caracteristicas');
+        setCaracteristicas(response.data);
+      } catch (err) {
+        setError('Error al cargar características');
+      }
+    };
+
     fetchCategories();
+    fetchCaracteristicas();
   }, []);
 
   const handleChange = e => {
@@ -29,6 +42,12 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
 
   const handleImagesChange = e => {
     setFormData({ ...formData, images: Array.from(e.target.files) });
+  };
+
+  const handleCaracteristicaToggle = (id) => {
+    setSelectedCaracteristicas((prev) =>
+      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
+    );
   };
 
   const handleSubmit = async e => {
@@ -45,10 +64,14 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
     }
 
     try {
-      // Aquí puedes adaptar según si usas onAdd local o llamada real a tu API
-      await axios.post('http://localhost:8080/api/products', formData);
+      const dataToSend = {
+        ...formData,
+        caracteristicas: selectedCaracteristicas
+      };
+
+      await axios.post('http://localhost:8080/api/products', dataToSend);
       setError('');
-      onAdd && onAdd(formData); // Solo si se pasa onAdd
+      onAdd && onAdd(dataToSend);
     } catch (err) {
       setError('Error al guardar el producto');
     }
@@ -103,6 +126,26 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
             ))}
           </select>
         </div>
+
+        {/* Sección de características */}
+        <div className="mb-3">
+          <label>Características</label>
+          <div className="d-flex flex-wrap gap-2">
+            {caracteristicas.map((car) => (
+              <button
+                key={car.id}
+                type="button"
+                className={`btn btn-outline-primary ${
+                  selectedCaracteristicas.includes(car.id) ? 'active' : ''
+                }`}
+                onClick={() => handleCaracteristicaToggle(car.id)}
+              >
+                {car.icono} {car.nombre}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {error && <div className="alert alert-danger">{error}</div>}
         <button type="submit" className="btn btn-success">
           Guardar producto

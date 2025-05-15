@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import Logo from '../images/Logo.png';
 import { FaPlane, FaSuitcase, FaBed } from 'react-icons/fa';
 import '../styles/NavBarComponent.css';
 
@@ -31,11 +30,12 @@ export const NavBarComponent = () => {
       <div className="container-fluid">
         <NavLink className="d-flex align-items-center text-decoration-none" to="/">
           <img
-            src={Logo}
+            src="/images/Logo.png"  // <-- ruta desde la raíz del servidor
             alt="Logo"
             className="rounded-circle me-2"
             style={{ width: 40, height: 40 }}
           />
+
           <span className="navbar-brand mb-0 h1">Digital Airlines</span>
           <small className="ms-2 text-muted">“Tu viaje, nuestra pasión”</small>
         </NavLink>

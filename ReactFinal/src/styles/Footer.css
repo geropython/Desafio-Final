@@ -1,10 +1,12 @@
 .footer {
-    width: 100%;
-    position: relative; /* Cambia a fixed si quieres que esté fijo abajo */
-    bottom: 0;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  margin-top: 10px;
+}
+
   
   .footer-logo {
     height: 30px;

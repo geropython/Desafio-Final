@@ -1,35 +1,35 @@
-import React from 'react';
-import './ImageGallery.css'; // Asegúrate de tener estilos personalizados en este archivo
+import React, { useState } from 'react';
+import '../styles/ImageGallery.css';
 
 const ImageGallery = ({ images = [] }) => {
-  // Nos aseguramos de que haya al menos 5 imágenes
-  if (images.length < 5) {
-    return <p>No hay suficientes imágenes para mostrar.</p>;
+  const [showAll, setShowAll] = useState(false);
+
+  if (images.length === 0) {
+    return <p>No hay imágenes para mostrar.</p>;
   }
 
-  // Definimos la imagen principal (la primera) y las otras 4
   const mainImage = images[0];
-  const otherImages = images.slice(1, 5); // Obtenemos las siguientes 4 imágenes
+  // Si no muestra todo, muestra solo 4 imágenes secundarias
+  const sideImages = showAll ? images.slice(1) : images.slice(1, 5);
 
   return (
     <div className="gallery-container">
-      {/* Imagen principal */}
       <div className="main-image">
-        <img src={mainImage} alt="Imagen principal" />
+        <img src={mainImage} alt="Principal" loading="lazy" />
       </div>
-      
-      {/* Grid de las otras imágenes */}
+
       <div className="image-grid">
-        {otherImages.map((img, idx) => (
+        {sideImages.map((img, idx) => (
           <div key={idx} className="grid-item">
-            <img src={img} alt={`Vista ${idx + 2}`} />
+            <img src={img} alt={`Imagen ${idx + 2}`} loading="lazy" />
           </div>
         ))}
-        
-        {/* Botón de 'Ver más' */}
-        <div className="grid-item see-more">
-          <span>Ver más</span>
-        </div>
+
+        {!showAll && images.length > 5 && (
+          <div className="grid-item see-more" onClick={() => setShowAll(true)}>
+            <span>Ver más</span>
+          </div>
+        )}
       </div>
     </div>
   );

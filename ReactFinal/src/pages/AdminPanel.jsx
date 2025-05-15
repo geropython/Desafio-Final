@@ -33,6 +33,9 @@ const AdminPanel = () => {
         <li className="list-group-item">📦 Ver pedidos</li>
         <li className="list-group-item">👥 Administración de usuarios</li>
         <li className="list-group-item">📊 Reportes y métricas</li>
+        <li className="list-group-item" onClick={() => navigate('/administracion/caracteristicas')} style={{ cursor: 'pointer' }}>
+          🏷️ Administrar características
+        </li>
       </ul>
 
       {/* ✅ Botón para lista de productos */}
