@@ -45,7 +45,7 @@ const RegisterPage = () => {
       await axios.post('http://localhost:8080/api/users/register', formData);
       setSuccess('Usuario registrado con éxito.');
       setFormData({ nombre: '', apellido: '', email: '', password: '' });
-    } catch (err) {
+    } catch{
       setError('Error al registrar el usuario. Intenta de nuevo.');
     }
   };

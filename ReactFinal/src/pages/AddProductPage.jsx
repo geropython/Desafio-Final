@@ -19,6 +19,7 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
         const response = await axios.get('http://localhost:8080/api/categories');
         setCategories(response.data);
       } catch (err) {
+        console.error('Error al cargar categorías:', err);
         setError('Error al cargar categorías');
       }
     };
@@ -28,6 +29,7 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
         const response = await axios.get('http://localhost:8080/api/caracteristicas');
         setCaracteristicas(response.data);
       } catch (err) {
+        console.error('Error al cargar características:', err);
         setError('Error al cargar características');
       }
     };
@@ -64,15 +66,26 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
     }
 
     try {
-      const dataToSend = {
-        ...formData,
-        caracteristicas: selectedCaracteristicas
-      };
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('description', formData.description);
+      formDataToSend.append('categoryId', formData.categoryId);
+      formDataToSend.append('caracteristicas', JSON.stringify(selectedCaracteristicas));
 
-      await axios.post('http://localhost:8080/api/products', dataToSend);
+      for (let i = 0; i < formData.images.length; i++) {
+        formDataToSend.append('images', formData.images[i]);
+      }
+
+      await axios.post('http://localhost:8080/api/products', formDataToSend, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
       setError('');
-      onAdd && onAdd(dataToSend);
+      onAdd && onAdd(formData); // Podés modificar si el backend devuelve el nuevo producto
     } catch (err) {
+      console.error('Error al guardar el producto:', err);
       setError('Error al guardar el producto');
     }
   };
@@ -127,7 +140,7 @@ const AddProductPage = ({ existingProducts, onAdd }) => {
           </select>
         </div>
 
-        {/* Sección de características */}
+        {/* Características */}
         <div className="mb-3">
           <label>Características</label>
           <div className="d-flex flex-wrap gap-2">

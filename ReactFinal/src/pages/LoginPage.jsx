@@ -1,32 +1,35 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Para redirigir después del login
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado para controlar si el usuario está autenticado
   const navigate = useNavigate();
 
   const users = [
     { email: 'gonzaliag@gmail.com', password: 'Gerocodbo2', name: 'Geronimo Gonzalia', isAdmin: false },
     { email: 'admin@gmail.com', password: 'admin123', name: 'Administrador', isAdmin: true },
-  ]; // Datos de ejemplo, reemplazar con datos reales o API
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
 
-    const user = users.find(
-      (u) => u.email === email && u.password === password
-    );
+    try {
+      const user = users.find(
+        (u) => u.email === email && u.password === password
+      );
 
-    if (user) {
-      setIsAuthenticated(true);
-      sessionStorage.setItem('user', JSON.stringify(user)); // Guardamos la sesión
-      navigate('/perfil'); // Redirige a la página de perfil o página principal
-    } else {
-      setError('Credenciales incorrectas. Intenta de nuevo.');
+      if (user) {
+        sessionStorage.setItem('user', JSON.stringify(user));
+        navigate('/perfil');
+      } else {
+        setError('Credenciales incorrectas. Intenta de nuevo.');
+      }
+    } catch (err) {
+      console.error('Error en el proceso de login:', err);
+      setError('Ocurrió un error al intentar iniciar sesión.');
     }
   };
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { CardComponent } from '../components/CardComponent';
-import productos from '../data/products';
 
 const PaquetesPage = () => {
   // URLs dinámicas de Unsplash basadas en palabras clave
